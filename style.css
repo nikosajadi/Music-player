@@ -16,22 +16,34 @@ body {
   font-family: Spartan, sans-serif;
   font-size: 12px;
 }
+/* Controls */
 .player-controls {
+  position: relative;
   width: 400px;
   height: 500px;
-  background: #d3d1c9e4;
- border-radius: 20px;
-box-shadow: 0 15px 30px 5px rba(0, 0, 0, 0.3);
+  background: #777c7de4;
+  border-radius: 20px;
+  box-shadow: 0 15px 30px 5px rba(0, 0, 0, 0.3);
 }
 
 
-.img-container {
 
+.img-container {
+  height: 200px;
+  width: 200px;
   position: relative;
   top: -50px;
   left: 50px;
 }
 
+.img-container img {
+  /* using this to have to fill the container */
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 5px 30px 5px rba(0, 0, 0, 0.5);
+}
 
 h2 {
   font-size: 25px;
@@ -72,13 +84,13 @@ h3 {
   justify-content: space-between;
 }
 
-/* Controls */
-.player-controls {
-  position: relative;
-  top: -15px;
-  left: 120px;
-  width: 200px;
-}
+
+
+
+
+
+
+
 
 .fas {
   font-size: 30px;
