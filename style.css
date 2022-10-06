@@ -1,6 +1,6 @@
 /* Images created by: https://unsplash.com/@pawel_czerwinski */
 
-@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@100&family=Comfortaa&family=Kaushan+Script&family=League+Spartan:wght@400;700&family=Oswald&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Spartan:400,700&display=swap");
 
 html {
   box-sizing: border-box;
@@ -16,33 +16,29 @@ body {
   font-family: Spartan, sans-serif;
   font-size: 12px;
 }
-/* Controls */
-.player-controls {
-  position: relative;
-  width: 400px;
-  height: 500px;
-  background: #777c7de4;
+
+
+.player-container {
+  height: 400px;
+  width: 350px;
+  background: #e7e7e7;
   border-radius: 20px;
-  box-shadow: 0 15px 30px 5px rba(0, 0, 0, 0.3);
+  box-shadow: 0 15px 30px 5px rgba(0, 0, 0, 0.3);
 }
-
-
-
 .img-container {
-  height: 200px;
-  width: 200px;
+  width: 250px;
+  height: 250px;
   position: relative;
   top: -50px;
   left: 50px;
 }
 
 .img-container img {
-  /* using this to have to fill the container */
   height: 100%;
   width: 100%;
   object-fit: cover;
   border-radius: 20px;
-  box-shadow: 0 5px 30px 5px rba(0, 0, 0, 0.5);
+  box-shadow: 0 5px 30px 5px rgba(0, 0, 0, 0.5);
 }
 
 h2 {
@@ -52,7 +48,7 @@ h2 {
 }
 
 h3 {
-  font-size: 20px;
+  font-size: 15px;
   text-align: center;
   font-weight: 400;
   margin: 5px 0 0;
@@ -84,13 +80,13 @@ h3 {
   justify-content: space-between;
 }
 
-
-
-
-
-
-
-
+/* Controls */
+.player-controls {
+  position: relative;
+  top: -15px;
+  left: 120px;
+  width: 200px;
+}
 
 .fas {
   font-size: 30px;
@@ -108,8 +104,12 @@ h3 {
 }
 
 /* Media Query: iPhone (Vertical) */
-@media screen and (max-width: 376px) {
+@media screen and (max-width: 414px) {
 
+   /* 95% of screen with meaning that it'll have 2.5% of the screen with margin */
+  .player-container {
+    width: 95vw;
+  }
 
   .img-container {
     left: 29px;
