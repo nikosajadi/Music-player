@@ -19,7 +19,7 @@ body {
 
 
 .player-container {
-  height: 400px;
+  height: 380px;
   width: 350px;
   background: #e7e7e7;
   border-radius: 20px;
@@ -29,7 +29,7 @@ body {
   width: 250px;
   height: 250px;
   position: relative;
-  top: -50px;
+  top: -100px;
   left: 50px;
 }
 
@@ -44,14 +44,14 @@ body {
 h2 {
   font-size: 25px;
   text-align: center;
-  margin: 0;
+  margin: 30px 30px 0;
 }
 
 h3 {
   font-size: 15px;
   text-align: center;
   font-weight: 400;
-  margin: 5px 0 0;
+  margin: 15px 30px 10px;
 }
 
 /* Progress */
@@ -59,14 +59,14 @@ h3 {
   background: #fff;
   border-radius: 5px;
   cursor: pointer;
-  margin: 40px 20px;
+  margin: 40px 0px;
   height: 4px;
-  width: 90%;
+  width: 100%;
 }
 
 .progress {
-  background: #242323;
-  border-radius: 5px;
+  background: #1c1b1b;
+  border-radius: 15px;
   height: 100%;
   /* change this to show progress */
   width: 66%;
@@ -75,12 +75,12 @@ h3 {
 
 .duration-wrapper {
   position: relative;
-  top: -25px;
+  top: -20px;
   display: flex;
   justify-content: space-between;
 }
 
-/* Controls */
+/* controls */
 .player-controls {
   position: relative;
   top: -15px;
@@ -89,12 +89,16 @@ h3 {
 }
 
 .fas {
-  font-size: 30px;
+  font-size: 25px;
   color: rgb(129, 129, 129);
-  margin-right: 30px;
-
+  margin: 0  25px 25px;
+  cursor: pointer;
+  user-select: none;
 }
-
+.fas:hover {
+  /* here we will become 20% percent darker as they're being hovered over */
+  filter: brightness(80%);
+}
 
 
 .main-button {
