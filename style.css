@@ -108,7 +108,7 @@ h3 {
 }
 
 /* Media Query: iPhone (Vertical) */
-@media screen and (max-width: 414px) {
+@media screen and (max-width: 390px) {
 
    /* 95% of screen with meaning that it'll have 2.5% of the screen with margin */
   .player-container {
