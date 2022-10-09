@@ -1,3 +1,9 @@
+const image = document.getElement('image');
+const title = document.getElement('title');
+const artist = document.getElement('artist');
+
+
+
 const music = document.querySelector('audio');
 const prevBtn = document.getElementById('prev');
 const playBtn = document.getElementById('play');
