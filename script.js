@@ -1,17 +1,24 @@
-const image = document.getElement('image');
-const title = document.getElement('title');
-const artist = document.getElement('artist');
-
-
-
+const image = document.querySelector('img');
+const title = document.getElementById('title');
+const artist = document.getElementById('artist');
 const music = document.querySelector('audio');
 const prevBtn = document.getElementById('prev');
 const playBtn = document.getElementById('play');
 const nextBtn = document.getElementById('next');
 
 
-//check if playing at the first time
+//Arrey for Music
+const songs = [{name: 'Irane-Man-00',displayName:'Iran-e-Man',artist: 'Homayon Shajarian'},
+{name: 'shajarian-5',displayName:'BaMan Sanama',artist: 'Homayon Shajarian'},{name: 'shajarian-6',displayName:'your_eyes_dream',artist: 'Homayon Shajarian'}
+];
 
+
+
+
+
+
+
+//check if playing at the first time
 let isPlaying = false;
 
 // Play
@@ -34,4 +41,22 @@ function pauseSong() {
 playBtn.addEventListener('click', () => (isPlaying ? pauseSong() : playSong()));
 
 
+// Update Dom
+// we use text content because we just want to change the value of the title.
+function loadSong(song) {
+  title.textContent = song.displayName;
+  artist.textContent = song.artist;
+  music.src = `music/${song.name}.mp3`;
+  image.src = `img/${song.name}.jpg`;
+}
 
+
+
+
+
+//on Load - Select First Song
+loadSong(songs[songIndex]);
+
+//event listener
+prevBtn.addEventListener('click', prevSong);
+nextBtn.addEventListener('click', nextSong);
