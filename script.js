@@ -13,11 +13,6 @@ const songs = [{name: 'Irane-Man-00',displayName:'Iran-e-Man',artist: 'Homayon S
 ];
 
 
-
-
-
-
-
 //check if playing at the first time
 let isPlaying = false;
 
@@ -49,12 +44,30 @@ function loadSong(song) {
   music.src = `music/${song.name}.mp3`;
   image.src = `img/${song.name}.jpg`;
 }
+//current song
+let songIndex = 0;
+ // Previous Song
+function prevSong() {
+  songIndex--;
+  if (songIndex < 0) {
+    songIndex = songs.length - 1;
+  }
+  console.log(songIndex);
+  loadSong(songs[songIndex]);
+  playSong();
+}
+// Next Song
+function nextSong() {
+  songIndex++;
+  if (songIndex > songs.length - 1) {
+    songIndex = 0;
+  }
+  console.log(songIndex);
+  loadSong(songs[songIndex]);
+  playSong();
+}
 
-
-
-
-
-//on Load - Select First Song
+// On Load - Select first Song
 loadSong(songs[songIndex]);
 
 //event listener
