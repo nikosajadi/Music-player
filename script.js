@@ -1,23 +1,36 @@
 //querySelector: method returns all elements that matches a CSS selector
-const image = document.querySelector('img');
+const image = document.querySelector("img");
 //getElementById:method returns an element with a specified value
-const title = document.getElementById('title');
-const artist = document.getElementById('artist');
-const music = document.querySelector('audio');
-const currentTimeEl = document.getElementById('current-time');
-const durationEl = document.getElementById('duration');
-const progress = document.getElementById('progress');
-const progressContainer = document.getElementById('progress-container');
-const prevBtn = document.getElementById('prev');
-const playBtn = document.getElementById('play');
-const nextBtn = document.getElementById('next');
+const title = document.getElementById("title");
+const artist = document.getElementById("artist");
+const music = document.querySelector("audio");
+const currentTimeEl = document.getElementById("current-time");
+const durationEl = document.getElementById("duration");
+const progress = document.getElementById("progress");
+const progressContainer = document.getElementById("progress-container");
+const prevBtn = document.getElementById("prev");
+const playBtn = document.getElementById("play");
+const nextBtn = document.getElementById("next");
 
 //Arrey for Music
 const songs = [
-{name: 'Irane-Man-00',displayName:'Iran-e-Man',artist: 'Homayon Shajarian'},
-{name: 'shajarian-5',displayName:'BaMan Sanama',artist: 'Homayon Shajarian'},{name: 'shajarian-6',displayName:'eyes_dream',artist: 'Homayon Shajarian'},{name: 'shajarian-7',displayName:'Che_Atashha',artist: 'Homayon Shajarian'}
+  {
+    name: "Iran-e-Man",
+    displayName: "Iran-e-Man",
+    artist: "Homayon Shajarian",
+  },
+  { name: "eyesDream", displayName: "eyesDream", artist: "Homayon Shajarian" },
+  {
+    name: "BaManSanama",
+    displayName: "BaManSanama",
+    artist: "Homayon Shajarian",
+  },
+  {
+    name: "cheAtashha",
+    displayName: "cheAtashha",
+    artist: "Homayon Shajarian",
+  },
 ];
-
 
 //check if playing at the first time
 let isPlaying = false;
@@ -25,22 +38,21 @@ let isPlaying = false;
 // Play
 function playSong() {
   isPlaying = true;
-  playBtn.classList.replace('fa-play', 'fa-pause');
-  playBtn.setAttribute('title', 'Pause');
+  playBtn.classList.replace("fa-play", "fa-pause");
+  playBtn.setAttribute("title", "Pause");
   music.play();
 }
 
 // Pause
 function pauseSong() {
   isPlaying = false;
-  playBtn.classList.replace('fa-pause', 'fa-play');
-  playBtn.setAttribute('title', 'Play');
+  playBtn.classList.replace("fa-pause", "fa-play");
+  playBtn.setAttribute("title", "Play");
   music.pause();
 }
 
 // Pause or play Event Listener
-playBtn.addEventListener('click', () => (isPlaying ? pauseSong() : playSong()));
-
+playBtn.addEventListener("click", () => (isPlaying ? pauseSong() : playSong()));
 
 // Update Dom
 // we use text.content because we just want to change the value of the title.
@@ -50,18 +62,20 @@ function loadSong(song) {
   music.src = `music/${song.name}.mp3`;
   image.src = `img/${song.name}.jpg`;
 }
+
 //current song
 let songIndex = 0;
- // Previous Song
+//Previous Song
 function prevSong() {
-  songIndex--;
+  preIndex--;
   if (songIndex < 0) {
     songIndex = songs.length - 1;
   }
   console.log(songIndex);
-  loadSong(songs[songIndex]);
+  loadSong(songIndex[songIndex]);
   playSong();
 }
+
 // Next Song
 function nextSong() {
   songIndex++;
@@ -79,12 +93,12 @@ loadSong(songs[songIndex]);
 //update Progress Bar & time
 function updateProgressBar(e) {
   if (isPlaying) {
-    console.log(e)
+    console.log(e);
   }
 }
 
 //event listener
-prevBtn.addEventListener('click', prevSong);
-nextBtn.addEventListener('click', nextSong);
+prevBtn.addEventListener("click", prevSong);
+nextBtn.addEventListener("click", nextSong);
 //timeupdate: fires when the current playback position has changed
-music.addEventListener('timeupdate', updateProgressBar )
+music.addEventListener("timeupdate", updateProgressBar);
