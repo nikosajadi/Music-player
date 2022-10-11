@@ -1,15 +1,21 @@
+//querySelector: method returns all elements that matches a CSS selector
 const image = document.querySelector('img');
+//getElementById:method returns an element with a specified value
 const title = document.getElementById('title');
 const artist = document.getElementById('artist');
 const music = document.querySelector('audio');
+const currentTimeEl = document.getElementById('current-time');
+const durationEl = document.getElementById('duration');
+const progress = document.getElementById('progress');
+const progressContainer = document.getElementById('progress-container');
 const prevBtn = document.getElementById('prev');
 const playBtn = document.getElementById('play');
 const nextBtn = document.getElementById('next');
 
-
 //Arrey for Music
-const songs = [{name: 'Irane-Man-00',displayName:'Iran-e-Man',artist: 'Homayon Shajarian'},
-{name: 'shajarian-5',displayName:'BaMan Sanama',artist: 'Homayon Shajarian'},{name: 'shajarian-6',displayName:'your_eyes_dream',artist: 'Homayon Shajarian'}
+const songs = [
+{name: 'Irane-Man-00',displayName:'Iran-e-Man',artist: 'Homayon Shajarian'},
+{name: 'shajarian-5',displayName:'BaMan Sanama',artist: 'Homayon Shajarian'},{name: 'shajarian-6',displayName:'eyes_dream',artist: 'Homayon Shajarian'},{name: 'shajarian-7',displayName:'Che_Atashha',artist: 'Homayon Shajarian'}
 ];
 
 
@@ -37,7 +43,7 @@ playBtn.addEventListener('click', () => (isPlaying ? pauseSong() : playSong()));
 
 
 // Update Dom
-// we use text content because we just want to change the value of the title.
+// we use text.content because we just want to change the value of the title.
 function loadSong(song) {
   title.textContent = song.displayName;
   artist.textContent = song.artist;
@@ -70,6 +76,15 @@ function nextSong() {
 // On Load - Select first Song
 loadSong(songs[songIndex]);
 
+//update Progress Bar & time
+function updateProgressBar(e) {
+  if (isPlaying) {
+    console.log(e)
+  }
+}
+
 //event listener
 prevBtn.addEventListener('click', prevSong);
 nextBtn.addEventListener('click', nextSong);
+//timeupdate: fires when the current playback position has changed
+music.addEventListener('timeupdate', updateProgressBar )
