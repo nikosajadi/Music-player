@@ -12,6 +12,7 @@ const prevBtn = document.getElementById("prev");
 const playBtn = document.getElementById("play");
 const nextBtn = document.getElementById("next");
 
+
 //Arrey for Music
 const songs = [
   {
@@ -96,10 +97,28 @@ function updateProgressBar(e) {
    //arrey destructuring technic from sreElement 
    const { duration, currentTime } = e.srcElement;
    console.log(duration, currentTime);
-   //Update progress bar with
+   //Update progress bar width
    const progressPercent = (currentTime / duration) * 100;
    progress.style.width = `${progressPercent}%`;
+   // calculate progress display for duration
+   const durationMinutes = Math.floor(duration /60);
+   console.log('minutes',durationMinutes);
+   let durationSeconds = Math.floor(duration %60);
+   if (durationSeconds < 10) {
+    durationSeconds = `0${durationSeconds}`;
   }
+  // Delay switching duration Element to avoid NaN
+  if (durationSeconds) {
+    durationEl.textContent = `${durationMinutes}:${durationSeconds}`;
+  }
+  // Calculate display for currentTime
+  const currentMinutes = Math.floor(currentTime / 60);
+  let currentSeconds = Math.floor(currentTime % 60);
+  if (currentSeconds < 10) {
+    currentSeconds = `0${currentSeconds}`;
+  }
+  currentTimeEl.textContent = `${currentMinutes}:${currentSeconds}`;
+}
 }
 
 //event listener
