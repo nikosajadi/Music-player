@@ -67,9 +67,9 @@ h3 {
 .progress {
   background: #1c1b1b;
   border-radius: 15px;
-  height: 0%;
+  height: 100%;
   /* change this to show progress */
-  width: 58%;
+  width: 0%;
   transition: width 0.1s linear;
 }
 

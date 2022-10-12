@@ -93,7 +93,12 @@ loadSong(songs[songIndex]);
 //update Progress Bar & time
 function updateProgressBar(e) {
   if (isPlaying) {
-    console.log(e);
+   //arrey destructuring technic from sreElement 
+   const { duration, currentTime } = e.srcElement;
+   console.log(duration, currentTime);
+   //Update progress bar with
+   const progressPercent = (currentTime / duration) * 100;
+   progress.style.width = `${progressPercent}%`;
   }
 }
 
