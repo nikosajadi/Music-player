@@ -100,6 +100,7 @@ function updateProgressBar(e) {
    //Update progress bar width
    const progressPercent = (currentTime / duration) * 100;
    progress.style.width = `${progressPercent}%`;
+
    // calculate progress display for duration
    const durationMinutes = Math.floor(duration /60);
    console.log('minutes',durationMinutes);
@@ -107,7 +108,7 @@ function updateProgressBar(e) {
    if (durationSeconds < 10) {
     durationSeconds = `0${durationSeconds}`;
   }
-  // Delay switching duration Element to avoid NaN
+  // Delay switching duration Element to avoid NaN at the first progress change
   if (durationSeconds) {
     durationEl.textContent = `${durationMinutes}:${durationSeconds}`;
   }
