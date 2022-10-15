@@ -96,7 +96,7 @@ function updateProgressBar(e) {
   if (isPlaying) {
    //arrey destructuring technic from sreElement 
    const { duration, currentTime } = e.srcElement;
-  //  console.log(duration, currentTime);
+    console.log(duration, currentTime);
    //Update progress bar width
    const progressPercent = (currentTime / duration) * 100;
    progress.style.width = `${progressPercent}%`;
@@ -122,7 +122,7 @@ function updateProgressBar(e) {
 }  
 }
 // set progress Bar 
-// e :pointer event 
+// e  = pointer event 
 function setProgressBar(e) {
   console.log(e); 
 
@@ -131,8 +131,10 @@ function setProgressBar(e) {
   console.log('width',width);
   const clickX = e.offsetX;
   console.log('clickX', clickX);
-  const { duration} = music
-  console.log(clickX / width);
+  const {duration} = music
+  console.log(clickX / width * duration);
+// currentTime: sets or returns the current playback position in the audio/video (in Seconds)
+  music.currentTime = ((clickX / width) * duration);
 }
 
  
@@ -143,4 +145,6 @@ prevBtn.addEventListener("click", prevSong);
 nextBtn.addEventListener("click", nextSong);
 //timeupdate: fires when the current playback position has changed
 music.addEventListener("timeupdate", updateProgressBar);
+// ended: fires when the current playlist ended
+music.addEventListener('ended', nextSong)
 progressContainer.addEventListener('click', setProgressBar);
